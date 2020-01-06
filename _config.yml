@@ -62,6 +62,9 @@ collections:
   extras:
     output: true
     permalink: /:path/index.html
+  locale:
+    output: true
+    permalink: /:path/index.html
 
 # Set the default layout for things in the episodes collection.
 defaults:
@@ -80,6 +83,12 @@ defaults:
     values:
       root: ..
       layout: page
+  - scope:
+      path: ""
+      type: locale
+    values:
+      root: ..
+      layout: episode
 
 # Files and directories that are not to be copied.
 exclude:
