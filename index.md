@@ -26,7 +26,7 @@ usability.
 
 > ## Prerequisites
 >
-> Understand that computers store data and instructions (programs, scripts etc.) in files.
-> Files are organised in directories (folders).
-> Know how to access files not in the working directory by specifying the path.
+> * Understand that computers store data and instructions (programs, scripts etc.) in files.
+> * Files are organised in directories (folders).
+> * Know how to access files not in the working directory by specifying the path.
 {: .prereq}
