@@ -1,4 +1,4 @@
-[submodule "locale/ja"]
+[submodule "_locale/ja"]
 	path = locale/ja
 	url = https://github.com/swcarpentry-ja/r-novice-gapminder-ja.git
 [submodule "_locale/es"]
