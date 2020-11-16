@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Licenses"
-root: ..
+root: .
 permalink: /LICENSE/
 ---
 ## Instructional Material

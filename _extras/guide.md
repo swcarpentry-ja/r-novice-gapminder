@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Instructor Notes"
+root: ..
 permalink: /guide/
 ---
 
