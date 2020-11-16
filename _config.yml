@@ -11,7 +11,7 @@ remote_theme: "carpentries-i18n/carp-theme"
 carpentry: "swc"
 
 # Overall title for pages.
-title: "R for Reproducible Scientific Analysis 2"
+title: "R for Reproducible Scientific Analysis"
 
 
 #------------------------------------------------------------
