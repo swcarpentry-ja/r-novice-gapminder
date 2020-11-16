@@ -1,3 +1,0 @@
-title: Figures
-permalink: /figures/
----
