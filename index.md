@@ -1,6 +1,7 @@
 ---
 layout: lesson
-root: .
+root: .  # Is the only page that doesn't follow the pattern /:path/index.html
+permalink: index.html
 ---
 
 Introduction to R for non-programmers using gapminder data.

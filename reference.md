@@ -1,6 +1,8 @@
 ---
 layout: reference
-root: .
+Title: "Reference"
+root: ..
+permalink: /reference/
 ---
 
 ## Reference
