@@ -19,7 +19,7 @@ keypoints:
 - "Remove rows from a data frame."
 - "Use `na.omit()` to remove rows from a data frame with `NA` values."
 - "Use `levels()` and `as.character()` to explore and manipulate factors."
-- "Use `str()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()`, and `typeof()` to understand the structure of a data frame."
+- "Use `str()`, `summary()`, `nrow()`, `ncol()`, `dim()`, `colnames()`, `rownames()`, `head()`, and `typeof()` to understand the structure of a data frame."
 - "Read in a csv file using `read.csv()`."
 - "Understand what `length()` of a data frame represents."
 source: Rmd
@@ -163,15 +163,36 @@ factor level, NA generated
 ~~~
 {: .error}
 
+Looks like our attempt to use the `rbind()` function returns a warning.  Recall that, unlike errors, warnings do not necessarily stop a function from performing its intended action.  You can confirm this by taking a look at the `cats` data frame.
+
+
+~~~
+cats
+~~~
+{: .language-r}
+
+
+
+~~~
+    coat weight likes_string age
+1 calico    2.1            1   2
+2  black    5.0            0   3
+3  tabby    3.2            1   5
+4   <NA>    3.3            1   9
+~~~
+{: .output}
+
+Notice that not only did we successfully add a new row, but there is `NA` in the column *coats* where we expected "tortoiseshell" to be.  Why did this happen?
+
 ## Factors
 
-Here is another thing to look out for: in a `factor`, each different value represents what is called a `level`. In our case, the `factor` "coat" has 3 levels: "black", "calico", and "tabby". R will only accept values that match one of the levels. If you add a new value, it will become `NA`.
+For an object containing the data type `factor`, each different value represents what is called a `level`. In our case, the `factor` "coat" has 3 levels: "black", "calico", and "tabby". R will only accept values that match one of the levels. If you add a new value, it will become `NA`.
 
 The warning is telling us that we unsuccessfully added "tortoiseshell" to our
 *coat* factor, but 3.3 (a numeric), TRUE (a logical), and 9 (a numeric) were
 successfully added to *weight*, *likes_string*, and *age*, respectively, since
 those variables are not factors. To successfully add a cat with a
-"tortoiseshell" *coat*, add "tortoiseshell" as a *level* of the factor:
+"tortoiseshell" *coat*, add "tortoiseshell" as a possible *level* of the factor:
 
 
 ~~~
@@ -235,7 +256,7 @@ str(cats)
 {: .output}
 
 > ## Challenge 1
-> Let's imagine that 1 human year is equivalent to 7 cat years. 
+> Let's imagine that 1 cat year is equivalent to 7 human years. 
 > 1. Create a vector called `human_age` by multiplying `cats$age` by 7.
 > 2. Convert `human_age` to a factor.
 > 3. Convert `human_age` back to a numeric vector using the `as.numeric()` function. Now divide it by 7 to get the original ages back. Explain what happened.
@@ -509,7 +530,89 @@ str(gapminder)
 ~~~
 {: .output}
 
-We can also examine individual columns of the data frame with our `typeof` function:
+An additional method for examining the structure of gapminder is to use the `summary` function. This function can be used on various objects in R. For data frames, `summary` yields a numeric, tabular, or descriptive summary of each column. Factor columns are summarized by the number of items in each level, numeric or integer columns by the descriptive statistics (quartiles and mean), and character columns by its length, class, and mode.  
+
+
+~~~
+summary(gapminder$country)
+~~~
+{: .language-r}
+
+
+
+~~~
+             Afghanistan                  Albania                  Algeria 
+                      12                       12                       12 
+                  Angola                Argentina                Australia 
+                      12                       12                       12 
+                 Austria                  Bahrain               Bangladesh 
+                      12                       12                       12 
+                 Belgium                    Benin                  Bolivia 
+                      12                       12                       12 
+  Bosnia and Herzegovina                 Botswana                   Brazil 
+                      12                       12                       12 
+                Bulgaria             Burkina Faso                  Burundi 
+                      12                       12                       12 
+                Cambodia                 Cameroon                   Canada 
+                      12                       12                       12 
+Central African Republic                     Chad                    Chile 
+                      12                       12                       12 
+                   China                 Colombia                  Comoros 
+                      12                       12                       12 
+         Congo Dem. Rep.               Congo Rep.               Costa Rica 
+                      12                       12                       12 
+           Cote d'Ivoire                  Croatia                     Cuba 
+                      12                       12                       12 
+          Czech Republic                  Denmark                 Djibouti 
+                      12                       12                       12 
+      Dominican Republic                  Ecuador                    Egypt 
+                      12                       12                       12 
+             El Salvador        Equatorial Guinea                  Eritrea 
+                      12                       12                       12 
+                Ethiopia                  Finland                   France 
+                      12                       12                       12 
+                   Gabon                   Gambia                  Germany 
+                      12                       12                       12 
+                   Ghana                   Greece                Guatemala 
+                      12                       12                       12 
+                  Guinea            Guinea-Bissau                    Haiti 
+                      12                       12                       12 
+                Honduras          Hong Kong China                  Hungary 
+                      12                       12                       12 
+                 Iceland                    India                Indonesia 
+                      12                       12                       12 
+                    Iran                     Iraq                  Ireland 
+                      12                       12                       12 
+                  Israel                    Italy                  Jamaica 
+                      12                       12                       12 
+                   Japan                   Jordan                    Kenya 
+                      12                       12                       12 
+         Korea Dem. Rep.               Korea Rep.                   Kuwait 
+                      12                       12                       12 
+                 Lebanon                  Lesotho                  Liberia 
+                      12                       12                       12 
+                   Libya               Madagascar                   Malawi 
+                      12                       12                       12 
+                Malaysia                     Mali               Mauritania 
+                      12                       12                       12 
+               Mauritius                   Mexico                 Mongolia 
+                      12                       12                       12 
+              Montenegro                  Morocco               Mozambique 
+                      12                       12                       12 
+                 Myanmar                  Namibia                    Nepal 
+                      12                       12                       12 
+             Netherlands              New Zealand                Nicaragua 
+                      12                       12                       12 
+                   Niger                  Nigeria                   Norway 
+                      12                       12                       12 
+                    Oman                 Pakistan                   Panama 
+                      12                       12                       12 
+                 (Other) 
+                     516 
+~~~
+{: .output}
+
+Along with the `str` and `summary` functions, we can examine individual columns of the data frame with our `typeof` function:
 
 
 ~~~

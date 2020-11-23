@@ -53,15 +53,6 @@ several operations with a single command.
 Let's open a new R script file in the `functions/` directory and call it
 functions-lesson.R.
 
-
-~~~
-my_sum <- function(a, b) {
-  the_sum <- a + b
-  return(the_sum)
-}
-~~~
-{: .language-r}
-
 Let's define a function `fahr_to_kelvin()` that converts temperatures from
 Fahrenheit to Kelvin:
 
@@ -317,7 +308,7 @@ Error in fahr_to_kelvin(temp = as.factor(32)): is.numeric(temp) is not TRUE
 > > 
 > > ~~~
 > > fahr_to_celsius <- function(temp) {
-> >   stopifnot(!is.numeric(temp))
+> >   stopifnot(is.numeric(temp))
 > >   temp_k <- fahr_to_kelvin(temp)
 > >   result <- kelvin_to_celsius(temp_k)
 > >   return(result)

@@ -184,7 +184,7 @@ str(gap_wide)
 
 ![](../fig/14-tidyr-fig2.png)
 
-The first step towards getting our nice intermediate data format is to first
+The first step towards getting our nice intermediate data format is to
 convert from the wide to the long format. The `tidyr` function `gather()` will
 'gather' your observation variables into a single variable.
 
@@ -277,7 +277,7 @@ gap_long$year <- as.integer(gap_long$year)
 > >
 > >~~~
 > ># A tibble: 15 x 3
-> ># Groups:   continent [?]
+> ># Groups:   continent [5]
 > >   continent obs_type       means
 > >   <chr>     <chr>          <dbl>
 > > 1 Africa    gdpPercap     2194. 

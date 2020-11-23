@@ -4,7 +4,7 @@ root: /  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html
 ---
 
-Introduction to R for non-programmers using gapminder data.
+*an introduction to R for non-programmers using gapminder data*
 
 The goal of this lesson is to teach novice programmers to write modular code
 and best practices for using R for data analysis. R is commonly used in many
